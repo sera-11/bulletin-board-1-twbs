@@ -1,17 +1,25 @@
-<div class="card " style="width: 30rem">
-      <div class="card-header d-flex align-items-center">
-        <div class="p-2 flex-fill">
-          <h5>All boards</h5>
+<div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3"><div class="card " style="width: 35rem">
+          <div class="card-header d-flex" style="padding-bottom: 2px;">
+            <div class="p-2 flex-fill" style="font-size: 4px;" >
+              <h6>All boards</h6>
+            </div>
+            <div><button type="button" class="d-flex ms-auto btn btn-outline-success">Add a new board</button></div>
+          </div>
+          <% @list_of_boards.each do |a_board| %>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex align-items-center">
+                <a href="/boards/<%= a_board.id %>">
+                  <%= a_board.name %>
+      
+                </a>
+                <i class="ms-auto d-flex fa-solid fa-chevron-right"></i>
+              </li>
+            <%end%>
+          </ul>
         </div>
-        <div><button type="button" class="d-flex ms-auto btn btn-outline-success">Add a new board</button></div>
       </div>
-      <% @list_of_boards.each do |a_board| %>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <a href="/boards/<%= a_board.id %>">
-              <%= a_board.name %>
-            </a>
-          </li>
-      <%end%>
-        </ul>
+      </div>   
+      
     </div>
