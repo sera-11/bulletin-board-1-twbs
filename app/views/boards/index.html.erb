@@ -1,25 +1,54 @@
 <div class="container">
-      <div class="row">
-        <div class="col-md-6 offset-md-3"><div class="card " style="width: 35rem">
-          <div class="card-header d-flex" style="padding-bottom: 2px;">
-            <div class="p-2 flex-fill" style="font-size: 4px;" >
-              <h6>All boards</h6>
-            </div>
-            <div><button type="button" class="d-flex ms-auto btn btn-outline-success">Add a new board</button></div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card " style="width: 35rem">
+        <div class="card-header d-flex" style="padding-bottom: 2px;">
+          <div class="p-2 flex-fill" style="font-size: 4px;" >
+            <h6>All boards</h6>
           </div>
-          <% @list_of_boards.each do |a_board| %>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item d-flex align-items-center">
-                <a href="/boards/<%= a_board.id %>">
-                  <%= a_board.name %>
-      
-                </a>
-                <i class="ms-auto d-flex fa-solid fa-chevron-right"></i>
-              </li>
-            <%end%>
-          </ul>
+          <div>
+            <!-- Button trigger modal -->
+            <button type="button" class="d-flex ms-auto btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add a new board</button></div>
         </div>
+        <% @list_of_boards.each do |a_board| %>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex align-items-center">
+              <a href="/boards/<%= a_board.id %>">
+                <%= a_board.name %>
+
+              </a>
+              <i class="ms-auto d-flex fa-solid fa-chevron-right"></i>
+            </li>
+          <%end%>
+        </ul>
       </div>
-      </div>   
-      
     </div>
+  </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New board</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/insert_board" method="post">
+          <div class="mb-3">
+            <label for="name_box" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name_box" name="query_name">
+          </div>
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-success">Add board</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
