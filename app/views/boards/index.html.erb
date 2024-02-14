@@ -10,18 +10,22 @@
             <!-- Button trigger modal -->
             <button type="button" class="d-flex ms-auto btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add a new board</button>
           </div>
-        </div> <!-- end of card-header -->
+        </div>
+ <!-- end of card-header -->
         <div class="list-group list-group-flush">
           <% @list_of_boards.each do |a_board| %>
-                <a class="d-flex list-group-item list-group-item-action" href="/boards/<%= a_board.id %>">
-                  <%= a_board.name %>
-                  <div class="ms-auto">
-                    <i class="fa-solid fa-chevron-right"></i>
-                  </div> <!-- end of arrow-->
-                </a>            
-            <%end%>
-        </div> <!-- end of card body-->
-      </div> <!-- end of card -->
+            <a class="d-flex list-group-item list-group-item-action" href="/boards/<%= a_board.id %>">
+              <%= a_board.name %>
+              <div class="ms-auto">
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+ <!-- end of arrow-->
+            </a>
+          <%end%>
+        </div>
+ <!-- end of card body-->
+      </div>
+ <!-- end of card -->
     </div>
   </div>
 
